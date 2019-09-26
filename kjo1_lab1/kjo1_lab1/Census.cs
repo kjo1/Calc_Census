@@ -45,7 +45,7 @@ namespace kjo1_lab1
                     {
                         sw.WriteLine(string.Format("Province ID #{0}", i));
                         for (int j = 0; j < 48; j++)
-                            sw.WriteLine(string.Format("\tRegion ID #{0}: {1}", new object[] { j, arrayPop[i, j] }));                        
+                            sw.WriteLine(string.Format("\tRegion ID #{0}: {1}", new object[] { j, arrayPop[i, j] }));
                     }
 
                 }
@@ -92,16 +92,18 @@ namespace kjo1_lab1
             }
             else if (!int.TryParse(txtPopulation.Text, out arrayPop[provinceID, regionID]))
             {
-                MessageBox.Show("That's way too big!!!\n" +
-                    " Maximum accept input (2,147,483,647)\n" +
-                    "Canada 2019 population is estimated at 37,411,047 people at mid year according to UN data.\n" +
-                    " Canada population is equivalent to 0.49% of the total world population.", "For Your Information!");
+                MessageBox.Show("That's either empty or way too big!!!\n\n" +
+                    "Minimum accept input (0)\n" +
+                    "Maximum accept input (2,147,483,647)\n\n" +
+                    "Canada 2019 population is estimated at 37,411,047 people\n" +
+                    "at mid year according to UN data.\n\n" +
+                    "Canada population is equivalent to 0.49% of the total world population.", "For Your Information!");
                 txtPopulation.Focus();
             }
             else
             {
                 MessageBox.Show("Population: " + string.Format("{0:#,0}", Convert.ToInt32(txtPopulation.Text)) +
-                                "\nsaved for Prov #" + txtProvince.Text +
+                                "\nsaved for Province #" + txtProvince.Text +
                                 ", Region #" + txtRegion.Text, "Success!");
                 ClearAllText(this);
                 txtProvince.Focus();
